@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>海洋探索之旅-噪域知識測驗</title>
+  <link rel="shortcut icon" href="img/icon.png"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- customized style -->
+  <style>
+    /* origin */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    html, body, .container, .row {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    body{
+      background-color: rgb(36, 124, 184);
+    }
+    .container {
+      max-width: 100%;
+    }
+    button {
+      font-size: 16px;
+    }
+
+    .half {
+      position: fixed;
+      margin: 0;
+      width: 50% !important;
+      height: 100%;
+    }
+    .bg {
+      background: url(img/噪域.png) center center;
+      background-size: cover;
+    }
+    .form {
+      left: 50%;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* .form背景 */
+      background-image: url(img/bg1-1.png);
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-size: auto 100%;
+    }
+    h1, form {
+      width: 100%;
+    }
+    h1 {
+      padding-top: 16px;
+      text-align: center;
+    }
+    form {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 340px;
+    }
+    .input-group {
+      margin-bottom: 30px;
+    }
+    textarea {
+      min-height: 100px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .half {
+        position: static;
+        width: 100% !important;
+        height: auto;
+      }
+      .bg {
+        height: 30vh;
+      }
+      #haif-bg{
+        display: none;
+      }
+      form {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+      /* .form {
+        background-image: url(img/bg1.png);
+      } */
+    }
+
+    /* customer */
+    .text-align{
+      text-align: center;
+    }
+    .item-align{
+      width: 100%;
+      margin: auto;
+    }
+    /* start page */
+    .title{
+      font-size:xx-large;
+      font-weight: bold;
+      color: rgb(56, 57, 61);
+      position: relative;
+      padding-top: 30px;
+    }
+    .subtitle{
+      font-size:x-large;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      position: relative;
+      padding-top: 0px;
+    }
+    .content{
+      height: 70vh;
+      /* width: 200px; */
+      width: 320px;
+      padding: 30px;
+      text-align: left;
+      color: rgb(255, 255, 255);
+      font-size: medium;
+      font-weight: bold;
+    }
+    .light_text{
+      color: rgb(30, 31, 36);
+      font-size: large;
+      font-weight: bold;
+    }
+    #start_button{
+      font-size: 20px;
+      color: rgb(36, 124, 184);
+      background-color: rgb(225, 237, 243);
+      width: fit-content;
+      height: fit-content;
+      padding: 5px 40px;
+      margin: auto;
+      border: 0px;
+      border-radius: 40px;
+    }
+    /* name page */
+    .logoImg{
+      width: 100%;
+      margin: auto;
+    }
+    .centerBlock{
+      height: 65vh;
+    }
+    .nameTitle{
+      font-weight: bolder;
+      margin-top: 15%;
+      margin-bottom: 15%;
+    }
+    .nameImg{
+      margin: 25% auto;
+    }
+    .nameInput{
+      margin: 20% auto;
+    }
+    .nameInput>input, .nameInput>input:focus ,.nameInput>input:active{
+      width: 60%;
+      margin: auto;
+      border: 0px;
+      border-radius: 0px;
+      border-bottom: 1.5px solid black;
+      background-color: transparent !important;
+      color: #303030;
+      text-align: center;
+    }
+    .nameInput>input:-webkit-autofill {
+      background-color: transparent !important;
+    }
+    .nameInput>input:-internal-autofill-previewed,
+    .nameInput>input:-internal-autofill-selected {
+      -webkit-text-fill-color: #303030;
+      transition: background-color 1000s ease-out 0.5s;
+    }
+    #quiz0_next{
+      font-size: 20px;
+      color: rgb(225, 237, 243);
+      background-color: rgb(0, 72, 133);
+      width: fit-content;
+      height: fit-content;
+      padding: 5px 40px;
+      margin: auto;
+      border: 0px;
+      border-radius: 40px;
+    }
+    /* quiz page */
+    .logoTop{
+      width: 100%;
+      margin: auto;
+      height: 10vh;
+    }
+    .logoTop > img{
+      margin: 10px auto;
+    }
+    .quizCenter{
+      height: 60vh;
+      padding-left: 10px;
+      padding-right: 10px;
+      z-index: 5;
+    }
+    .quizBottom{
+      height: 20vh;
+      padding-left: 20px;
+      padding-right: 20px;
+      z-index: 99;
+    }
+    .labelTitle{
+      font-weight: bolder;
+      font-size: xx-large;
+      color: rgb(36, 124, 184);
+      display: flex;
+      margin-right: 10px;
+    }
+    .question{
+      margin: 10px;
+      font-weight: bolder;
+      font-size: large;
+      display: flex;
+    }
+    .radio-group{
+      margin: 30px;
+    }
+    .radio-group label {
+      display: inline-block;
+      margin: 10px auto;
+    }
+    .quizAll{
+      color: black;
+    }
+    .nextQuizBtn{
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 72, 133);
+      width: fit-content;
+      height: fit-content;
+      padding: 5px 40px;
+      margin: auto;
+      border: 0px;
+      border-radius: 40px;
+      z-index: 999;
+    }
+    
+  </style>
+
+
+</head>
+<body>
+
+  <div class="container">
+    <main class="row">
+      <!-- bg -->
+      <section class="six columns half bg" id="haif-bg"></section>
+      
+      <!-- form -->
+      <section class="six columns half form">
+        <form>
+          <div id="start" class="text-align">
+            <h1 class="title">海洋探索之旅</h1>
+            <h1 class="subtitle">噪域知識測驗</h1>
+            <div class="content">
+              汪洋大海中人類製造出了各種噪音，海洋生物目前正深受其害。<br><br>
+              我們是海洋中的<br><span class="light_text">一隻海豚</span><br><br>
+              在接下來的旅程中，<br>我們將會面對的<br>是怎樣的<br>海洋呢?<br>
+            </div>
+            <button type="button" id="start_button" onclick="startQuiz1()">進入測驗</button>
+          </div>
+          <div id="quiz0" class="quiz0 text-align">
+            <!-- 姓名 -->
+            <div class="logoImg"><a href="index.html"><img src="img/logo.png" width="80px"></a></div>
+            <div class="centerBlock">
+              <h2 class="nameTitle item-align">在出發前<br>為您的海豚取個名字吧</h2>
+              <div class="nameImg item-align"><img src="img/dolphin.png" width="250px"></div>
+              <div class="nameInput input-group">
+                <input class="" type="text" placeholder="輸入暱稱" id="name">
+              </div>
+            </div>
+            <button type="button" id="quiz0_next" onclick="nextToQuiz1()">開始測驗</button>
+          </div>
+          
+          <div id="quiz1" class="quiz1 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目一 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q1</h3>
+                  你知道我們的展覽主題是什麼嗎?
+                </div>
+                <!-- <label>題目一</label> -->
+                <div class="radio-group row">
+                  <!-- 1-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizOneAns1" name="quizOne" value="A">
+                    <label for="quizOneAns1">(A) 空氣汙染</label>
+                  </div>
+
+                  <!-- 1-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizOneAns2" name="quizOne" value="B">
+                    <label for="quizOneAns2">(B) 海洋垃圾</label>
+                  </div>
+
+                  <!-- 1-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizOneAns3" name="quizOne" value="C">
+                    <label for="quizOneAns3">(C) 海洋噪音</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz1_next" class="nextQuizBtn" onclick="nextToQuiz2()" disabled>下一題</button>
+            </div>
+            </div>
+
+          <div id="quiz2" class="quiz2 quizAll">  
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目二 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q2</h3>
+                  在同一聲源下陸地和海洋分貝是一樣的嗎?
+                </div>
+                <div class="radio-group row">
+                  <!-- 2-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTwoAns1" name="quizTwo" value="A">
+                    <label for="quizTwoAns1">(A) 海洋分貝 > 陸地分貝</label>
+                  </div>
+
+                  <!-- 2-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTwoAns2" name="quizTwo" value="B">
+                    <label for="quizTwoAns2">(B) 海洋分貝 = 陸地分貝</label>
+                  </div>
+
+                  <!-- 2-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTwoAns3" name="quizTwo" value="C">
+                    <label for="quizTwoAns3">(C) 海洋分貝 < 陸地分貝</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz2_next" class="nextQuizBtn" onclick="nextToQuiz3()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz3" class="quiz3 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目三 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q3</h3>
+                  海底噪音對於魚類是否會帶來影響?
+                </div>
+                <div class="radio-group row">
+                  <!-- 3-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizThreeAns1" name="quizThree" value="A">
+                    <label for="quizThreeAns1">(A) 否，其聲音對於牠們如同一般聲音</label>
+                  </div>
+
+                  <!-- 3-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizThreeAns2" name="quizThree" value="B">
+                    <label for="quizThreeAns2">(B) 是，而且可能使牠們造成負面影響</label>
+                  </div>
+
+                  <!-- 3-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizThreeAns3" name="quizThree" value="C">
+                    <label for="quizThreeAns3">(C) 不一定，要看海洋生物的種類</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz3_next" class="nextQuizBtn" onclick="nextToQuiz4()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz4" class="quiz4 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目四 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q4</h3>
+                  關於海事工程下列敘述何者正確?
+                </div>
+                <div class="radio-group row">
+                  <!-- 4-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFourAns1" name="quizFour" value="A">
+                    <label for="quizFourAns1">(A) 透過鑽探將聲波傳導到海洋</label>
+                  </div>
+
+                  <!-- 4-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFourAns2" name="quizFour" value="B">
+                    <label for="quizFourAns2">(B) 此工程多以修建港口為主</label>
+                  </div>
+
+                  <!-- 4-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFourAns3" name="quizFour" value="C">
+                    <label for="quizFourAns3">(C) 打樁為主要噪音來源</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz4_next" class="nextQuizBtn" onclick="nextToQuiz5()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz5" class="quiz5 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目五 -->
+            <div class="quizCenter">           
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q5</h3>
+                  關於航運漁事下列敘述何者正確?
+                </div>
+                <div class="radio-group row">
+                  <!-- 5-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFiveAns1" name="quizFive" value="A">
+                    <label for="quizFiveAns1">(A) 對於海洋生物影響較小</label>
+                  </div>
+
+                  <!-- 5-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFiveAns2" name="quizFive" value="B">
+                    <label for="quizFiveAns2">(B) 噪音透過船身傳入海洋</label>
+                  </div>
+
+                  <!-- 5-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizFiveAns3" name="quizFive" value="C">
+                    <label for="quizFiveAns3">(C) 鳴笛聲為主要噪音源</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">           
+              <button type="button" id="quiz5_next" class="nextQuizBtn" onclick="nextToQuiz6()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz6" class="quiz6 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目六 -->
+            <div class="quizCenter">           
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q6</h3>
+                  關於離岸風電下列敘述何者正確?
+                </div>
+                <div class="radio-group row">
+                  <!-- 6-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSixAns1" name="quizSix" value="A">
+                    <label for="quizSixAns1">(A) 可能會導致鯨豚棲地位移</label>
+                  </div>
+
+                  <!-- 6-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSixAns2" name="quizSix" value="B">
+                    <label for="quizSixAns2">(B) 運轉時發出高頻聲音</label>
+                  </div>
+
+                  <!-- 6-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSixAns3" name="quizSix" value="C">
+                    <label for="quizSixAns3">(C) 短期內可能會對生物造成極大壓力</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz6_next" class="nextQuizBtn" onclick="nextToQuiz7()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz7" class="quiz7 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目七 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q7</h3>
+                  關於軍事行為下列敘述何者正確?
+                </div>
+                <div class="radio-group row">
+                  <!-- 7-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSevenAns1" name="quizSeven" value="A">
+                    <label for="quizSevenAns1">(A) 屬於短時間高音量的聲波</label>
+                  </div>
+
+                  <!-- 7-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSevenAns2" name="quizSeven" value="B">
+                    <label for="quizSevenAns2">(B) 鯨豚為了遠離聲源，容易導致迷失方向，更甚造成身體傷害</label>
+                  </div>
+
+                  <!-- 7-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizSevenAns3" name="quizSeven" value="C">
+                    <label for="quizSevenAns3">(C) 以上皆是</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz7_next" class="nextQuizBtn" onclick="nextToQuiz8()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz8" class="quiz8 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目八 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q8</h3>
+                  請問哪個關於噪音對於鯨豚傷害等級的敘述是正確的?
+                </div>
+                <div class="radio-group row">
+                  <!-- 8-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizEightAns1" name="quizEight" value="A">
+                    <label for="quizEightAns1">(A) 第一級</label>
+                  </div>
+
+                  <!-- 8-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizEightAns2" name="quizEight" value="B">
+                    <label for="quizEightAns2">(B) 第三級</label>
+                  </div>
+
+                  <!-- 8-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizEightAns3" name="quizEight" value="C">
+                    <label for="quizEightAns3">(C) 第五級</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz8_next" class="nextQuizBtn" onclick="nextToQuiz9()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz9" class="quiz9 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目九 -->
+            <div class="quizCenter">            
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q9</h3>
+                  在這三隻海豚中，對於聲音最敏感的鯨豚是哪隻?
+                </div>
+                <div class="radio-group row">
+                  <!-- 9-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizNineAns1" name="quizNine" value="A">
+                    <label for="quizNineAns1">(A) 中華白海豚</label>
+                  </div>
+
+                  <!-- 9-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizNineAns2" name="quizNine" value="B">
+                    <label for="quizNineAns2">(B) 瓶鼻海豚</label>
+                  </div>
+
+                  <!-- 9-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizNineAns3" name="quizNine" value="C">
+                    <label for="quizNineAns3">(C) 露脊鼠豚</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="quizBottom">
+              <button type="button" id="quiz9_next" class="nextQuizBtn" onclick="nextToQuiz10()" disabled>下一題</button>
+            </div>
+          </div>
+
+          <div id="quiz10" class="quiz10 quizAll">
+            <div class="logoTop text-align"><img src="img/logo.png" width="80px"></a></div>
+            <hr>
+            <!-- 題目十 -->
+            <div class="quizCenter">
+              <div class="input-group">
+                <div class="question">
+                  <h3 class="labelTitle">Q10</h3>
+                  請問哪個關於法規的敘述是正確的?
+                </div>
+                <div class="radio-group row">
+                  <!-- 10-1 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTenAns1" name="quizTen" value="A">
+                    <label for="quizTenAns1">(A) 法規一</label>
+                  </div>
+
+                  <!-- 10-2 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTenAns2" name="quizTen" value="B">
+                    <label for="quizTenAns2">(B) 法規二</label>
+                  </div>
+
+                  <!-- 10-3 -->
+                  <div class="four columns">
+                    <input type="radio" id="quizTenAns3" name="quizTen" value="C">
+                    <label for="quizTenAns3">(C) 法規三</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quizBottom">
+              <button type="button" id="submit" class="nextQuizBtn" disabled>確認送出</button>
+            </div>
+            
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    
+    var q1='C',q2='A',q3='B',q4='C',q5='B',q6='A',q7='C',q8='A',q9='A',q10='A';
+    var correct = 0;
+    var bg1,bg2,bg3;
+    // if( window.innerWidth > 1024) {
+    //   bg1 = 'url(img/bg1-1.png)';
+    //   bg2 = 'url(img/bg2-1.png)';
+    //   bg3 = 'url(img/bg3-1.png)';
+    // }else{
+    //   bg1 = 'url(img/bg1.png)';
+    //   bg2 = 'url(img/bg2.png)';
+    //   bg3 = 'url(img/bg3.png)';
+    // }
+
+    $(function() {
+      console.log( "ready!" );
+      // #region 預設show/hide
+      $('#start').show();
+      $('#quiz0').hide();
+      $('#quiz1').hide();
+      $('#quiz2').hide();
+      $('#quiz3').hide();
+      $('#quiz4').hide();
+      $('#quiz5').hide();
+      $('#quiz6').hide();
+      $('#quiz7').hide();
+      $('#quiz8').hide();
+      $('#quiz9').hide();
+      $('#quiz10').hide();
+      // #endregion
+
+      // #region 按鈕禁用
+      $('[name="quizOne"]').on('click',function(){
+        document.getElementById('quiz1_next').disabled=false;
+      });
+      $('[name="quizTwo"]').on('click',function(){
+        document.getElementById('quiz2_next').disabled=false;
+      });
+      $('[name="quizThree"]').on('click',function(){
+        document.getElementById('quiz3_next').disabled=false;
+      });
+      $('[name="quizFour"]').on('click',function(){
+        document.getElementById('quiz4_next').disabled=false;
+      });
+      $('[name="quizFive"]').on('click',function(){
+        document.getElementById('quiz5_next').disabled=false;
+      });
+      $('[name="quizSix"]').on('click',function(){
+        document.getElementById('quiz6_next').disabled=false;
+      });
+      $('[name="quizSeven"]').on('click',function(){
+        document.getElementById('quiz7_next').disabled=false;
+      });
+      $('[name="quizEight"]').on('click',function(){
+        document.getElementById('quiz8_next').disabled=false;
+      });
+      $('[name="quizNine"]').on('click',function(){
+        document.getElementById('quiz9_next').disabled=false;
+      });
+      $('[name="quizTen"]').on('click',function(){
+        document.getElementById('submit').disabled=false;
+      });
+      // #endregion
+      
+      // 檢查表單
+      $('#submit').on('click', function() {
+        //需要先確認必填欄位是否填寫
+        if ($('#name').val() && $('[name="quizOne"]').val() && $('[name="quizTwo"]').val()
+            && $('[name="quizThree"]').val() && $('[name="quizFour"]').val() && $('[name="quizFive"]').val()
+            && $('[name="quizSix"]').val() && $('[name="quizSeven"]').val() && $('[name="quizEight"]').val()
+            && $('[name="quizNine"]').val() && $('[name="quizTen"]').val()) 
+        {  
+          // 姓名
+          var name = $('#name').val() || '未填寫';
+
+          // 題目一
+          var quizOne = function() {
+            var v;
+            $('[name="quizOne"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q1){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目二
+          var quizTwo = function() {
+            var v;
+            $('[name="quizTwo"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q2){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目三
+          var quizThree = function() {
+            var v;
+            $('[name="quizThree"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q3){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目四
+          var quizFour = function() {
+            var v;
+            $('[name="quizFour"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q4){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目五
+          var quizFive = function() {
+            var v;
+            $('[name="quizFive"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q5){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目六
+          var quizSix = function() {
+            var v;
+            $('[name="quizSix"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q6){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目七
+          var quizSeven = function() {
+            var v;
+            $('[name="quizSeven"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q7){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目八
+          var quizEight = function() {
+            var v;
+            $('[name="quizEight"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q8){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目九
+          var quizNine = function() {
+            var v;
+            $('[name="quizNine"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q9){
+              correct ++;
+            }
+            return v;
+          };
+          // 題目十
+          var quizTen = function() {
+            var v;
+            $('[name="quizTen"]').each(function() {
+              if($(this).prop('checked') === true) v = $(this).val();
+            });
+            if (v==q10){
+              correct ++;
+            }
+            return v;
+          };
+
+          // post
+          var data = {
+            'entry.1525036747': name,
+            'entry.1155822358': quizOne(),
+            'entry.180865950': quizTwo(),
+            'entry.1757248421': quizThree(),
+            'entry.767157747': quizFour(),
+            'entry.2132939482': quizFive(),
+            'entry.96476786': quizSix(),
+            'entry.819849255': quizSeven(),
+            'entry.1893773205': quizEight(),
+            'entry.775287783': quizNine(),
+            'entry.1497408210': quizTen(),
+          };
+          $.ajax({
+            type: 'POST',
+            url: 'https://docs.google.com/forms/u/2/d/e/1FAIpQLSctV1qXucngmW4F1uy0nqIQwjTo-CTRM73VfqOoylpdfNA9Wg/formResponse',
+            data: data,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            complete: function() {
+              // alert('資料已送出！');
+              // 最後跳轉到感謝的頁面
+              // window.location.replace("result.html");
+              location.href = "result.html?name="+name+"&correct="+correct;
+            }
+          });
+        }
+        else{
+          alert('題目還沒回答完成喔！');
+        }
+      });
+    });
+    
+    //#region 控制題數
+    function startQuiz1(){
+      $('#start').hide();
+      $('#quiz0').show();
+      console.log('輸入暱稱');
+      $(".form").css("background-image",`url(img/bg2-1.png)`);
+    };
+
+    function nextToQuiz1(){
+      if ($('#name').val()){
+        $('#quiz0').hide();
+        $('#quiz1').show();
+        console.log($('#name').val());
+        console.log("第一題");
+        $(".form").css("background-image", `url(img/bg3-1.png)`);
+      }
+      else{
+        alert('請輸入暱稱');
+      }
+    };
+
+    function nextToQuiz2(){
+      if ($('[name="quizOne"]').val()){
+        $('#quiz1').hide();
+        $('#quiz2').show();
+        console.log($('[name="quizOne"]').val());
+        console.log("第二題");
+      }
+      else{
+        alert('請選擇一個答案'); 
+      }
+    };
+    function nextToQuiz3(){
+      if ($('[name="quizTwo"]').val()){
+        $('#quiz2').hide();
+        $('#quiz3').show();
+        console.log($('[name="quizTwo"]').val());
+        console.log("第三題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz4(){
+      if ($('[name="quizThree"]').val()){
+        $('#quiz3').hide();
+        $('#quiz4').show();
+        console.log($('[name="quizThree"]').val());
+        console.log("第四題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz5(){
+      if ($('[name="quizFour"]').val()){
+        $('#quiz4').hide();
+        $('#quiz5').show();
+        console.log($('[name="quizFour"]').val());
+        console.log("第五題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz6(){
+      if ($('[name="quizFive"]').val()){
+        $('#quiz5').hide();
+        $('#quiz6').show();
+        console.log($('[name="quizFive"]').val());
+        console.log("第六題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz7(){
+      if ($('[name="quizSix"]').val()){
+        $('#quiz6').hide();
+        $('#quiz7').show();
+        console.log($('[name="quizSix"]').val());
+        console.log("第七題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz8(){
+      if ($('[name="quizSeven"]').val()){
+        $('#quiz7').hide();
+        $('#quiz8').show();
+        console.log($('[name="quizSeven"]').val());
+        console.log("第八題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz9(){
+      if ($('[name="quizEight"]').val()){
+        $('#quiz8').hide();
+        $('#quiz9').show();
+        console.log($('[name="quizEight"]').val());
+        console.log("第九題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    function nextToQuiz10(){
+      if ($('[name="quizNine"]').val()){
+        $('#quiz9').hide();
+        $('#quiz10').show();
+        console.log($('[name="quizNine"]').val());
+        console.log("第十題");
+      }
+      else{
+        alert('請選擇一個答案');
+      }
+    };
+    //#endregion
+
+  </script>
+  
+</body>
+</html>

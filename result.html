@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>噪域小學堂</title>
+  <link rel="shortcut icon" href="img/icon.png"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  
+  <!-- customized style -->
+  <style>
+    /* origin */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    html, body, .container, .row {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    body{
+      background-color: rgb(36, 124, 184);
+    }
+    .container {
+      max-width: 100%;
+    }
+    button {
+      font-size: 16px;
+    }
+
+    .half {
+      position: fixed;
+      margin: 0;
+      width: 50% !important;
+      height: 100%;
+    }
+    .bg {
+      left: 50%;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* .form背景 */
+      background-image: url(img/bg2-1.png);
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-size: auto 100%;
+    }
+    h1, form {
+      width: 100%;
+    }
+    h1 {
+      padding-top: 16px;
+      text-align: center;
+    }
+    form {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 340px;
+    }
+    .input-group {
+      margin-bottom: 30px;
+    }
+    textarea {
+      min-height: 100px;
+    }
+
+    /* customer */
+    .text-align{
+      text-align: center;
+    }
+    .item-align{
+      width: 100%;
+      margin: auto;
+    }
+    /* result page */
+    .logoImg{
+      width: 100%;
+      margin: auto;
+    }
+    .result{
+      max-width: 280px;
+      padding: 0 10px;
+    }
+    .topBlock{
+      height: 5vh;
+    }
+    .centerBlock{
+      height: 45vh;
+    }
+    .bottomBlock{
+      height: 30vh;
+      text-align: left;
+      display: flex;
+    }
+    .bottomBlockLeft{
+      width: 100px;
+    }
+    .bottomBlockRight{
+      width: 140px;
+    }
+    .resultTitle{
+      font-size: large;
+      font-weight: bolder;
+      margin-top: 30px;
+      padding: 10px;
+      text-align: center;
+      color: rgb(0, 72, 133);
+    }
+    .resultContent{
+      text-align: left;
+      padding: 10px;
+    }
+    .resultNumber{
+      text-align: left;
+      padding: 10px;
+      font-weight: bold;
+      font-size: large;
+    }
+    .ansNumber{
+      font-size: larger;
+      color: rgb(0, 72, 133);
+      padding: 0px 2px;
+    }
+    #restartBtn{
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 72, 133);
+      width: fit-content;
+      height: fit-content;
+      padding: 5px 20px;
+      margin: 20px 0 0 5px;
+      border: 0px;
+      border-radius: 40px;
+    }
+    #answerBtn{
+      border: 0px;
+      border-bottom: 1px solid #555;
+      color: #555;
+      font-size: x-small;
+      padding: 0px 10px;
+      margin: 10px 10px;
+      height: fit-content;
+    }
+    .resultImg{
+      width: auto;
+      height: 150px;
+      text-align: right;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <main class="row">
+      <section class="bg">
+          <div id="result" class="result text-align">
+            <div class="topBlock">
+              <div class="logoImg"><a href="index.html"><img src="img/logo.png" width="80px"></a></div>
+            </div>
+            <!-- 答對結果 -->
+            <div class="centerBlock">
+              <div class="resultTitle">名字</div>
+              <div class="resultContent">噪域展場體驗結束。海洋噪音其實是不容忽視的一個問題，希望您在噪域中所得到的體驗，能夠更加了解海洋噪音對於海洋生物所帶來的影響，並在未來更多多關注這項議題。</div>
+              <div class="resultNumber">總共拿到<span class="ansNumber"></span>分!</div>
+            </div>
+            <div class="bottomBlock">
+              <div class="bottomBlockLeft">
+                <button type="button" id="restartBtn" onclick="location.href='index.html'">重新測驗</button>
+                <button type="button" id="answerBtn"  onclick="location.href='answer.html'">觀看正確解答</button>  
+              </div>
+              <div class="bottomBlockRight">
+                  <div class="resultImg"><img src="img/刑警海豚.png" width="200px" id="img1"></div>
+              </div>
+             
+            </div>
+          </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+
+    var ansNumber,username;
+    var getUrlString = location.href;
+    var url = new URL(getUrlString);
+    ansNumber = url.searchParams.get('correct');
+    username = url.searchParams.get('name');
+    $(function() {
+        console.log(ansNumber);
+        if( ansNumber>=9 ){
+          $('.resultTitle').text(username+'，您所處的海洋不受人為噪音影響可以自在的悠遊玩耍');
+          $('#img1').attr("src","img/刑警海豚.png");
+          $(".bg").css("background-image", `url(img/bg2-1.png)`);
+        }else if( ansNumber<9 && ansNumber>6 ){
+          $('.resultTitle').text(username+'，您所處的海洋好像有點吵可能會感到有些煩躁');
+          $('.resultTitle').css('color','rgb(121,118,45)');
+          $('.ansNumber').css('color','rgb(121,118,45)');
+          $('#img1').attr("src","img/耳機海豚.png");
+          $(".bg").css("background-image", `url(img/bg2-1_yellow.png)`);
+          $('#restartBtn').css('background-color','rgb(121,118,45)');
+          $('body').css('background-color','rgb(172,170,75)');
+        }else{
+          $('.resultTitle').text(username+'，您所處的海洋四周皆是噪音需要盡快離開此地');
+          $('.resultTitle').css('color','rgb(124,25,38)');
+          $('.ansNumber').css('color','rgb(124,25,38)');
+          $('#img1').attr("src","img/醉鬼海豚.png");
+          $(".bg").css("background-image", `url(img/bg2-1_red.png)`);
+          $('#restartBtn').css('background-color','rgb(124,25,38)');
+          $('body').css('background-color','rgb(186,62,98)');
+        }
+        $('.ansNumber').text(ansNumber);
+    });
+  </script>
+  
+</body>
+</html>

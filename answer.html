@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>噪域小學堂</title>
+  <link rel="shortcut icon" href="img/icon.png"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  
+  <!-- customized style -->
+  <style>
+    /* origin */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    html, body, .container, .row {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    body{
+      background-color: rgb(36, 124, 184);
+    }
+    .container {
+      max-width: 100%;
+    }
+    button {
+      font-size: 16px;
+    }
+
+    .half {
+      position: fixed;
+      margin: 0;
+      width: 50% !important;
+      height: 100%;
+    }
+    .bg {
+      left: 50%;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* .form背景 */
+      background-color: rgb(225, 237, 243);
+    }
+    h1, form {
+      width: 100%;
+    }
+    h1 {
+      padding-top: 16px;
+      text-align: center;
+    }
+    form {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 340px;
+    }
+    .input-group {
+      margin-bottom: 30px;
+    }
+    textarea {
+      min-height: 100px;
+    }
+
+    /* customer */
+    .text-align{
+      text-align: center;
+    }
+    .item-align{
+      width: 100%;
+      margin: auto;
+    }
+    /* result page */
+    .logoImg{
+      width: 100%;
+      margin: 20px auto;
+    }
+    .topBlock{
+      height: 10vh;
+    }
+    .centerBlock{
+      height: 90vh;
+    }
+
+    .quizBlock{
+      text-align: left;
+    }
+    .question{
+      margin: 10px;
+      font-weight: bolder;
+      font-size: large;
+      display: flex;
+    }
+    .labelTitle{
+      font-weight: bolder;
+      font-size: xx-large;
+      color: rgb(36, 124, 184);
+      display: flex;
+      margin-right: 10px;
+    }
+    
+    .optionBlock{
+      margin: 10px;
+      padding: 5px 20px;
+    }
+    .option{
+      color: rgb(113, 120, 123);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .correctOption{
+      color: rgb(50, 167, 69);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <main class="row">
+      <section class="bg">
+          <div id="result" class="result text-align">
+            <div class="topBlock">
+              <div class="logoImg"><a href="index.html"><img src="img/logo.png" width="80px"></a></div>
+            </div>
+            <!-- 題目正解 -->
+            <!-- q1 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q1</h3>
+                你知道我們的展覽主題是什麼嗎?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 空氣汙染</div>
+                <div class="option">(B) 海洋垃圾</div>
+                <div class="option correctOption">(C) 海洋噪音</div>
+              </div>
+            </div>
+            <!-- q2 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q2</h3>
+                在同一聲源下陸地和海洋分貝是一樣的嗎?
+              </div>
+              <div class="optionBlock">
+                <div class="option correctOption">(A) 海洋分貝 > 陸地分貝</div>
+                <div class="option">(B) 海洋分貝 = 陸地分貝</div>
+                <div class="option">(C) 海洋分貝 < 陸地分貝</div>
+              </div>
+            </div>
+            <!-- q3 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q3</h3>
+                海底噪音對於魚類是否會帶來影響?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 否，其聲音對於牠們如同一般聲音</div>
+                <div class="option correctOption">(B) 是，而且可能使牠們造成負面影響</div>
+                <div class="option">(C) 不一定，要看海洋生物的種類</div>
+              </div>
+            </div>
+            <!-- q4 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q4</h3>
+                關於海事工程下列敘述何者正確?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 透過鑽探將聲波傳導到海洋</div>
+                <div class="option">(B) 此工程多以修建港口為主</div>
+                <div class="option correctOption">(C) 打樁為主要噪音來源</div>
+              </div>
+            </div>
+            <!-- q5 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q5</h3>
+                關於航運漁事下列敘述何者正確?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 對於海洋生物影響較小</div>
+                <div class="option correctOption">(B) 噪音透過船身傳入海洋</div>
+                <div class="option">(C) 鳴笛聲為主要噪音源</div>
+              </div>
+            </div>
+            <!-- q6 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q6</h3>
+                關於離岸風電下列敘述何者正確?
+              </div>
+              <div class="optionBlock">
+                <div class="option correctOption">(A) 可能會導致鯨豚棲地位移</div>
+                <div class="option">(B) 運轉時發出高頻聲音</div>
+                <div class="option">(C) 短期內可能會對生物造成極大壓力</div>
+              </div>
+            </div>
+            <!-- q7 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q7</h3>
+                關於軍事行為下列敘述何者正確?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 屬於短時間高音量的聲波</div>
+                <div class="option">(B) 鯨豚為了遠離聲源，容易導致迷失方向，更甚造成身體傷害</div>
+                <div class="option correctOption">(C)  以上皆是</div>
+              </div>
+            </div>
+            <!-- q8 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q8</h3>
+                關於鯨豚類傷害下列敘述何者正確?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A)</div>
+                <div class="option">(B)</div>
+                <div class="option correctOption">(C)</div>
+              </div>
+            </div>
+            <!-- q9 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q9</h3>
+                在這三隻海豚中，對於聲音最敏感的鯨豚是哪隻?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A) 中華白海豚</div>
+                <div class="option">(B) 瓶鼻海豚</div>
+                <div class="option correctOption">(C) 露脊鼠海豚</div>
+              </div>
+            </div>
+            <!-- q10 -->
+            <div class="quizBlock">
+              <div class="question">
+                <h3 class="labelTitle">Q10</h3>
+                法規問題?
+              </div>
+              <div class="optionBlock">
+                <div class="option">(A)</div>
+                <div class="option">(B)</div>
+                <div class="option correctOption">(C)</div>
+              </div>
+            </div>
+            
+              
+          </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+
+    var ansNumber,username;
+    var getUrlString = location.href;
+    var url = new URL(getUrlString);
+    ansNumber = url.searchParams.get('correct');
+    username = url.searchParams.get('name');
+    $(function() {
+        console.log(ansNumber);
+        if( ansNumber>=9 ){
+          $('.resultTitle').text(username+'，您所處的海洋不受人為噪音影響可以自在的悠遊玩耍');
+        }else if( ansNumber<9 && ansNumber>6 ){
+          $('.resultTitle').text(username+'，您所處的海洋好像有點吵可能會感到有些煩躁');
+        }else{
+          $('.resultTitle').text(username+'，您所處的海洋四周皆是噪音需要盡快離開此地');
+        }
+        $('.ansNumber').text(ansNumber);
+    });
+  </script>
+  
+</body>
+</html>
