@@ -52,7 +52,7 @@
       align-items: center;
       flex-wrap: wrap;
       /* .form背景 */
-      background-image: url(img/bg1-1.png);
+      background-image: url(img/bg1-2.png);
       background-repeat: no-repeat;
       background-position-x: center;
       background-size: auto 100%;
@@ -251,6 +251,10 @@
       border: 0px;
       border-radius: 40px;
       z-index: 999;
+    }
+    /* scroll */
+    ::-webkit-scrollbar {
+      display: none;
     }
     
   </style>
@@ -551,19 +555,19 @@
               <div class="input-group">
                 <div class="question">
                   <h3 class="labelTitle">Q8</h3>
-                  請問哪個關於噪音對於鯨豚傷害等級的敘述是正確的?
+                  噪音對鯨豚帶來的影響中，哪一級會對鯨豚造成暫時性或永久性的聽力損失?
                 </div>
                 <div class="radio-group row">
                   <!-- 8-1 -->
                   <div class="four columns">
                     <input type="radio" id="quizEightAns1" name="quizEight" value="A">
-                    <label for="quizEightAns1">(A) 第一級</label>
+                    <label for="quizEightAns1">(A) 第二級</label>
                   </div>
 
                   <!-- 8-2 -->
                   <div class="four columns">
                     <input type="radio" id="quizEightAns2" name="quizEight" value="B">
-                    <label for="quizEightAns2">(B) 第三級</label>
+                    <label for="quizEightAns2">(B) 第四級</label>
                   </div>
 
                   <!-- 8-3 -->
@@ -623,25 +627,25 @@
               <div class="input-group">
                 <div class="question">
                   <h3 class="labelTitle">Q10</h3>
-                  請問哪個關於法規的敘述是正確的?
+                  關於離岸風電環評審查，訂定多少分貝為水下噪音閾值?
                 </div>
                 <div class="radio-group row">
                   <!-- 10-1 -->
                   <div class="four columns">
                     <input type="radio" id="quizTenAns1" name="quizTen" value="A">
-                    <label for="quizTenAns1">(A) 法規一</label>
+                    <label for="quizTenAns1">(A) 120分貝</label>
                   </div>
 
                   <!-- 10-2 -->
                   <div class="four columns">
                     <input type="radio" id="quizTenAns2" name="quizTen" value="B">
-                    <label for="quizTenAns2">(B) 法規二</label>
+                    <label for="quizTenAns2">(B) 160分貝</label>
                   </div>
 
                   <!-- 10-3 -->
                   <div class="four columns">
                     <input type="radio" id="quizTenAns3" name="quizTen" value="C">
-                    <label for="quizTenAns3">(C) 法規三</label>
+                    <label for="quizTenAns3">(C) 180分貝</label>
                   </div>
                 </div>
               </div>
@@ -660,7 +664,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script>
     
-    var q1='C',q2='A',q3='B',q4='C',q5='B',q6='A',q7='C',q8='A',q9='C',q10='A';
+    var q1='C',q2='A',q3='B',q4='C',q5='B',q6='A',q7='C',q8='A',q9='C',q10='B';
     var correct = 0;
     var bg1,bg2,bg3;
     // if( window.innerWidth > 1024) {
